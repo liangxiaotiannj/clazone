@@ -1,0 +1,174 @@
+.audio_widget{
+    width: 40px;
+    height: 40px;
+    background:lightcoral;
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    z-index: 11;
+    animation: musicPan 10s linear infinite;
+    border-radius: 50%;
+    transition: all 0.5s;
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+}
+.audio_widget_open{
+    transition: all 0.5s;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom:0;
+    left:0;
+    z-index: 20;
+    background:rgba(255,255,255,.1);
+    backdrop-filter: blur(10px);
+}
+
+
+@keyframes musicPan
+{
+    0%   {
+        background:rgba(255,255,255,.1);
+        transform:rotate(0deg);
+    }
+    25%  {
+        background: rgba(255,255,255,.4);
+        transform:rotate(90deg);
+    }
+    50%  {
+        background: rgba(255,255,255,.8);
+        transform:rotate(180deg);
+    }
+    75%  {
+        background: rgba(255,255,255,.4);
+        transform:rotate(270deg);
+    }
+    100% {
+        background: rgba(255,255,255,.1);
+        transform:rotate(360deg);
+    }
+}
+
+.spectrum{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    .spectrum_item{
+        display: inline-block;
+        width: 2px;
+        background:#000;
+        margin: 0 1px;
+    }
+    .spectrum_item1{
+        animation: spectrum1 1s linear infinite;
+    }
+    .spectrum_item2{
+        animation: spectrum2 1s linear infinite;
+    }
+    .spectrum_item3{
+        animation: spectrum3 1s linear infinite;
+    }
+    .spectrum_item4{
+        animation: spectrum4 1s linear infinite;
+    }
+    .spectrum_item5{
+        animation: spectrum5 1s linear infinite;
+    }
+}
+
+
+@keyframes spectrum1
+{
+    0%   {
+        height: 1px;
+    }
+    25%  {
+        height: 7px;
+    }
+    50%  {
+        height: 15px;
+    }
+    75%  {
+        height: 7px;
+    }
+    100% {
+        height: 1px;
+    }
+}
+
+@keyframes spectrum2
+{
+    0%   {
+        height: 15px;
+    }
+    25%  {
+        height: 10px;
+    }
+    50%  {
+        height: 1px;
+    }
+    75%  {
+        height: 10px;
+    }
+    100% {
+        height: 15px;
+    }
+}
+
+@keyframes spectrum3
+{
+    0%   {
+        height: 1px;
+    }
+    25%  {
+        height: 10px;
+    }
+    50%  {
+        height: 13px;
+    }
+    75%  {
+        height: 10px;
+    }
+    100% {
+        height: 1px;
+    }
+}
+
+@keyframes spectrum4
+{
+    0%   {
+        height: 13px;
+    }
+    25%  {
+        height: 7px;
+    }
+    50%  {
+        height: 1px;
+    }
+    75%  {
+        height: 7px;
+    }
+    100% {
+        height: 13px;
+    }
+}
+
+@keyframes spectrum5
+{
+    0%   {
+        height: 1px;
+    }
+    25%  {
+        height: 6px;
+    }
+    50%  {
+        height: 12px;
+    }
+    75%  {
+        height: 6px;
+    }
+    100% {
+        height: 1px;
+    }
+}
