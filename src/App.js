@@ -7,6 +7,7 @@ import MusicPlay from './components/audio/index';
 import Home from './components/home/index';
 import Setting from './components/setting/index';
 import Product from './components/product/index';
+import 'fontsource-roboto';
 
 function App() {
   return (
