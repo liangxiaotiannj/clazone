@@ -216,7 +216,7 @@
         transform: scale(0.8);
         transition: all 0.5s;
         border-radius: 20px;
-        height: 450px;
+        height: 480px;
         background: rgba($color: #fff, $alpha: 0.5);
     }
     .my_swiper_zoom{
@@ -225,4 +225,13 @@
         border-radius: 10px;
     }
     
+}
+.content_body{
+    text-align: center;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.content_img{
+    width: 80%;
+    margin-top: 30px;
 }

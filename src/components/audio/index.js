@@ -17,7 +17,7 @@ export default class musicPlay extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            fullScroll: true,
+            fullScroll: false,
             itemIndex: '',
             audioConfig: []
         };
@@ -25,50 +25,50 @@ export default class musicPlay extends React.Component {
 
 
     componentDidMount() {
+        let config = [{
+            id: 0,
+            pic: '../audio/pic/The Ocean_Mike Perry.png',
+            name: 'The Ocean',
+            artist: 'Mike Perry',
+            src: '../audio/songs/The Ocean_Mike Perry.mp3'
+        }, {
+            id: 1,
+            pic: '../audio/pic/云烟成雨-房东的猫.png',
+            name: '云烟成雨',
+            artist: '房东的猫',
+            src: '../audio/songs/云烟成雨-房东的猫.mp3'
+        }, {
+            id: 2,
+            pic: '../audio/pic/张韶涵 - 阿刁.png',
+            name: '阿刁',
+            artist: '张韶涵',
+            src: '../audio/songs/张韶涵 - 阿刁.mp3'
+        }, {
+            id: 3,
+            pic: '',
+            name: 'Touch It',
+            artist: 'Feat. Ariana Grande',
+            src: '../audio/songs/Touch It （Feat. Ariana Grande）_志国夜总会'
+        }, {
+            id: 4,
+            pic: '../audio/pic/Trouble Maker_Trouble Maker.png',
+            name: 'Trouble Maker',
+            artist: 'Trouble Maker',
+            src: '../audio/songs/Trouble Maker_Trouble Maker.mp3'
+        }, {
+            id: 5,
+            pic: '../audio/pic/Victory_Two Steps From Hell.png',
+            name: 'Victory',
+            artist: 'Two Steps From Hell',
+            src: '../audio/songs/Victory_Two Steps From Hell.mp3'
+        },]
         this.setState({
-            audioConfig: [{
-                id: 0,
-                pic: '../audio/pic/The Ocean_Mike Perry.png',
-                name: 'The Ocean',
-                artist: 'Mike Perry',
-                src: '../audio/songs/The Ocean_Mike Perry.mp3'
-            }, {
-                id: 1,
-                pic: '../audio/pic/云烟成雨-房东的猫.png',
-                name: '云烟成雨',
-                artist: '房东的猫',
-                src: '../audio/songs/云烟成雨-房东的猫.mp3'
-            }, {
-                id: 2,
-                pic: '../audio/pic/张韶涵 - 阿刁.png',
-                name: '阿刁',
-                artist: '张韶涵',
-                src: '../audio/songs/张韶涵 - 阿刁.mp3'
-            }, {
-                id: 3,
-                pic: '',
-                name: 'Touch It',
-                artist: 'Feat. Ariana Grande',
-                src: '../audio/songs/Touch It （Feat. Ariana Grande）_志国夜总会'
-            }, {
-                id: 4,
-                pic: '../audio/pic/Trouble Maker_Trouble Maker.png',
-                name: 'Trouble Maker',
-                artist: 'Trouble Maker',
-                src: '../audio/songs/Trouble Maker_Trouble Maker.mp3'
-            }, {
-                id: 5,
-                pic: '../audio/pic/Victory_Two Steps From Hell.png',
-                name: 'Victory',
-                artist: 'Two Steps From Hell',
-                src: '../audio/songs/Victory_Two Steps From Hell.mp3'
-            },]
+            audioConfig: [...config]
         })
+        
     }
 
     zoomWidget = (status) => {
-
-        console.log(status)
         this.setState({
             fullScroll: status
         })
@@ -79,7 +79,6 @@ export default class musicPlay extends React.Component {
     }
 
     fullMaxShow = (index) => {
-        console.log(index)
         this.setState({
             itemIndex: index
         })
@@ -97,9 +96,7 @@ export default class musicPlay extends React.Component {
         if (fullScroll) {
             //展开状态
             let slides = [];
-            console.log(audioConfig.length)
-            let s = 6;
-            for (let i = 0; i < s; i++) {
+            for (let i = 0; i < audioConfig.length; i++) {
                 slides.push(
                     <SwiperSlide className="my_swiper_silder" key={'swiper-slide-' + i}>
                         <SlideItem config={audioConfig[i]} itemIndex={itemIndex} nowKey={i} />
@@ -113,7 +110,6 @@ export default class musicPlay extends React.Component {
             //         </SwiperSlide>
             //     )
             // })
-            console.log(slides)
             content = (
                 <div className="widget_content">
                     <span className="widget_name">Player</span>

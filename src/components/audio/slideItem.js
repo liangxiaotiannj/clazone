@@ -10,10 +10,13 @@ export default class slideItem extends React.Component {
     }
 
     render() {
-        const { itemIndex,nowKey } = this.props;
+        const { itemIndex,nowKey,config } = this.props;
+        console.log(config)
         return (
             <div className={itemIndex === nowKey ? "silder_content my_swiper_zoom" : "silder_content"}>
-                
+                <div className="content_body">
+                    <img className="content_img" src={config['pic']}/>
+                </div>
             </div>
         );
     }
