@@ -218,11 +218,50 @@
         border-radius: 20px;
         height: 480px;
         background: rgba($color: #fff, $alpha: 0.5);
+        
+        
+    }
+    .my_swiper_boom{
+        .play_btn{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            outline: none;
+            background: #fff;
+            border: 1px solid #ddd;
+            transition: all 0.5s;
+            position: absolute;
+            top: -30px;
+            right: 50px;
+        }
+        .item_info{
+            color: #000;
+        }
     }
     .my_swiper_zoom{
         transform: scale(1) !important;
         background: rgba($color: #fff, $alpha: 0);
         border-radius: 10px;
+        .play_btn{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            outline: none;
+            background: transparent;
+            border: 1px solid transparent;
+            transition: all 0.5s;
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            color: #fff;
+            transform: translate(50%,110%);
+        }
+        .item_info{
+            color: #fff;
+        }
+        .progress_line{
+            margin-top: 15px;
+        }
     }
     
 }
@@ -234,4 +273,25 @@
 .content_img{
     width: 80%;
     margin-top: 30px;
+}
+.item_info{
+    width: 80%;
+    text-align: left;
+    color: #fff;
+    padding:10px 30px;
+    position: relative;
+    transition: all 0.5s;
+    margin: 0 auto;
+    .item_name{
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .item_art{
+        font-size: 16px;
+    }
+}
+
+.audio_play{
+    width: 0;
+    height: 0;
 }

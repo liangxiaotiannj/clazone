@@ -38,9 +38,9 @@ export default class home extends React.Component {
         return (
             <div className="background">
                 <img className="background_img" src={bg} />
-
                 <div className="content">Personal</div>
                 <div className={fullScroll ? 'mask_open mask_box' : 'mask_normal mask_box'}>
+                <audio src={'../audio/songs/Touch It （Feat. Ariana Grande）_志国夜总会.mp3'} className="audio_play" controls></audio>
                     <div className="mask_content">
                         Miranda Jones
                         {optionBtn}

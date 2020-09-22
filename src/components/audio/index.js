@@ -90,6 +90,12 @@ export default class musicPlay extends React.Component {
         e.nativeEvent.stopImmediatePropagation();
         this.zoomWidget(false)
     }
+
+    playAudio = (index) =>{
+        this.setState({
+            itemIndex: index
+        })
+    }
     render() {
         const { fullScroll, itemIndex, audioConfig } = this.state;
         let content;
@@ -99,17 +105,10 @@ export default class musicPlay extends React.Component {
             for (let i = 0; i < audioConfig.length; i++) {
                 slides.push(
                     <SwiperSlide className="my_swiper_silder" key={'swiper-slide-' + i}>
-                        <SlideItem config={audioConfig[i]} itemIndex={itemIndex} nowKey={i} />
+                        <SlideItem config={audioConfig[i]} itemIndex={itemIndex} nowKey={i} play={this.playAudio}/>
                     </SwiperSlide>
                 )
             }
-            // audioConfig.map((item,index)=>{
-            //     slides.push(
-            //         <SwiperSlide className="my_swiper_silder" key={'swiper-slide-'+index}>
-            //             <SlideItem config={item} itemIndex={itemIndex} nowKey={index}/>
-            //         </SwiperSlide>
-            //     )
-            // })
             content = (
                 <div className="widget_content">
                     <span className="widget_name">Player</span>
@@ -119,9 +118,10 @@ export default class musicPlay extends React.Component {
                             virtual
                             slidesPerView={1}
                             spaceBetween={50}
+                            initialSlide={!!itemIndex?itemIndex:0}
                             className="my_swiper"
-                            onSlideChange={() => console.log('slide change')}
-                            onSwiper={(swiper) => console.log(swiper)}
+                            onSlideChange={() => ''}
+                            onSwiper={(swiper) => ''}
                         >
                             {slides}
                         </Swiper>
@@ -141,7 +141,7 @@ export default class musicPlay extends React.Component {
             );
         }
         return (
-            <div className={fullScroll ? "audio_widget_open" : "audio_widget"}>
+            <div className={fullScroll ? "audio_widget_open" : "audio_widget"} >
                 {content}
             </div>
         );
