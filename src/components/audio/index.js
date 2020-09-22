@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import './index.scss';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 // Import Swiper React components
@@ -19,7 +19,8 @@ export default class musicPlay extends React.Component {
         this.state = {
             fullScroll: false,
             itemIndex: '',
-            audioConfig: []
+            audioConfig: [],
+            playSrc: ''
         };
     }
 
@@ -48,7 +49,7 @@ export default class musicPlay extends React.Component {
             pic: '',
             name: 'Touch It',
             artist: 'Feat. Ariana Grande',
-            src: '../audio/songs/Touch It （Feat. Ariana Grande）_志国夜总会'
+            src: '../audio/songs/Touch It （Feat. Ariana Grande）_志国夜总会.mp3'
         }, {
             id: 4,
             pic: '../audio/pic/Trouble Maker_Trouble Maker.png',
@@ -65,7 +66,6 @@ export default class musicPlay extends React.Component {
         this.setState({
             audioConfig: [...config]
         })
-        
     }
 
     zoomWidget = (status) => {
@@ -91,10 +91,18 @@ export default class musicPlay extends React.Component {
         this.zoomWidget(false)
     }
 
-    playAudio = (index) =>{
+    playAudio = (index) => {
         this.setState({
             itemIndex: index
         })
+        const { playAudio } = this.props;
+        let s = '';
+        if(!!this.state.audioConfig[index]){
+            s = this.state.audioConfig[index]['src']
+        }else{
+            s = ''
+        }
+        playAudio(s);
     }
     render() {
         const { fullScroll, itemIndex, audioConfig } = this.state;
@@ -118,7 +126,7 @@ export default class musicPlay extends React.Component {
                             virtual
                             slidesPerView={1}
                             spaceBetween={50}
-                            initialSlide={!!itemIndex?itemIndex:0}
+                            initialSlide={!!itemIndex ? itemIndex : 0}
                             className="my_swiper"
                             onSlideChange={() => ''}
                             onSwiper={(swiper) => ''}

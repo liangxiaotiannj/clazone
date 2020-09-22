@@ -17,14 +17,19 @@ export default class home extends React.Component {
     }
 
     zoomOutMask = () => {
-        const { fullScroll } = this.state;
+        const { fullScroll, playSrc } = this.state;
         this.setState({
             fullScroll: !fullScroll
         })
     }
+    playAudio = (s) => {
+        this.setState({
+            playSrc: s
+        })
+    }
 
     render() {
-        const { fullScroll } = this.state;
+        const { fullScroll,playSrc } = this.state;
         let optionBtn;
         if (fullScroll) {
             optionBtn = (
@@ -40,7 +45,6 @@ export default class home extends React.Component {
                 <img className="background_img" src={bg} />
                 <div className="content">Personal</div>
                 <div className={fullScroll ? 'mask_open mask_box' : 'mask_normal mask_box'}>
-                <audio src={'../audio/songs/Touch It （Feat. Ariana Grande）_志国夜总会.mp3'} className="audio_play" controls></audio>
                     <div className="mask_content">
                         Miranda Jones
                         {optionBtn}
